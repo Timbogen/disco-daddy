@@ -17,7 +17,14 @@ export default function Home() {
                 <section className={styles.about}>
                     <h2>Daddy?</h2>
                     <h2>Who the fuck is Daddy?</h2>
-                    <ScrollDown />
+                </section>
+                <section className={styles.about}>
+                    <h2>Daddy?</h2>
+                    <h2>Who the fuck is Daddy?</h2>
+                </section>
+                <section className={styles.target}>
+                    <h2>Daddy?</h2>
+                    <h2>Who the fuck is Daddy?</h2>
                 </section>
             </main>
             <footer className={styles.footer}>Test</footer>

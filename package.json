@@ -10,6 +10,7 @@
         "start": "next start"
     },
     "dependencies": {
+        "@ctrl/tinycolor": "^4.1.0",
         "@react-three/drei": "^9.114.6",
         "@react-three/fiber": "^8.17.10",
         "@types/three": "^0.169.0",
