@@ -2,6 +2,9 @@ import styles from "./page.module.scss";
 import { Disco } from "@/app/disco/disco";
 import { ScrollDown } from "@/app/components/scroll-down/scroll-down";
 
+/** The title */
+const title = "Disco Daddy";
+
 /**
  * The home page
  */
@@ -11,7 +14,11 @@ export default function Home() {
             <main className={styles.main}>
                 <Disco />
                 <section className={styles.intro}>
-                    <h1>DiscoDaddy</h1>
+                    <h1>
+                        {title.split("").map((c, index) => (
+                            <span style={{ animationDelay: `${index * 0.1}s` }}>{c}</span>
+                        ))}
+                    </h1>
                     <ScrollDown />
                 </section>
                 <section className={styles.about}>

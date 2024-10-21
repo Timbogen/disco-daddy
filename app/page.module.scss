@@ -12,15 +12,30 @@
         padding: var(--spacing64);
 
         h1,
-        h2 {
+        h2,
+        h1 span {
             font-size: 7rem;
             color: var(--primary-red);
             font-family: var(--font-galada), sans-serif;
         }
 
+        @keyframes floating {
+            0% {
+                transform: translateY(-20rem);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
         h1 {
             font-size: 7rem;
-            flex: 1 1 auto;
+
+            span {
+                transform: translateY(-20rem);
+                display: inline-block;
+                animation: floating 1s cubic-bezier(0.47, 1.64, 0.41, 0.8) forwards;
+            }
         }
 
         h2 {
@@ -29,6 +44,7 @@
     }
 
     .intro {
+        justify-content: space-between;
     }
 
     .about {
