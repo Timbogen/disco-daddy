@@ -1,0 +1,12 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing64);
+}
+
+.title {
+    font-size: 7rem;
+    color: var(--primary-red);
+    font-family: var(--font-galada), sans-serif;
+}
