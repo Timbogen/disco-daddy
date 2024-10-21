@@ -62,13 +62,15 @@ export const Lights: React.FC = () => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [animations]);
 
     /** Let the disco ball spin */
     useFrame(() => {
         const mesh = parentRef.current;
-        if (mesh) mesh.rotation.y -= 0.02;
-        if (mesh) mesh.rotation.x -= 0.02;
+        if (mesh) {
+            mesh.rotation.x -= 0.02;
+            mesh.rotation.y -= 0.02;
+        }
     });
 
     return (

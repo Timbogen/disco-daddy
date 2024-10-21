@@ -11,17 +11,19 @@ const texture = "/three/crystal.png";
 const envMap = loader.load([texture, texture, texture, texture, texture, texture]);
 
 /** Create the shiny disco ball material */
-const shinyMaterial = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    metalness: 1,
-    roughness: 0.2, // Slight roughness for realistic reflections
-    envMap: envMap, // Add the environment map for reflections
-});
+const getShinyMaterial = () =>
+    new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        metalness: 1,
+        roughness: 0.2, // Slight roughness for realistic reflections
+        envMap: envMap, // Add the environment map for reflections
+    });
 
 /**
  * A simple ball with the shiny disco material
  */
 export const Ball: React.FC<MeshProps> = (meshProps) => {
+    const shinyMaterial = useMemo(getShinyMaterial, []);
     return (
         <mesh {...meshProps} material={shinyMaterial}>
             <sphereGeometry args={[1, 32, 32]} />
@@ -35,6 +37,7 @@ export const Ball: React.FC<MeshProps> = (meshProps) => {
  */
 export const DiscoBall: React.FC<MeshProps> = (meshProps) => {
     const ballRef = useRef<THREE.Mesh>(null);
+    const shinyMaterial = useMemo(getShinyMaterial, []);
 
     /**
      * Create the disco ball

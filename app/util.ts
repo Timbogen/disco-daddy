@@ -4,6 +4,15 @@ export const primaryRed = "#f2a7b9";
 export const primaryBlue = "#56a1e2";
 
 /**
+ * Simple ease in ease out function
+ */
+export const easeInOut = (t: number) => {
+    return t < 0.5
+        ? 2 * t * t
+        : -1 + (4 - 2 * t) * t;
+}
+
+/**
  * The interface for an animation step
  */
 export interface AnimationScript {

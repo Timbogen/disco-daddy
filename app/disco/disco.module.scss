@@ -4,4 +4,6 @@
     inset: 0;
     width: 100vw;
     height: 100vh;
+    transition: opacity 700ms;
+    opacity: 0;
 }
