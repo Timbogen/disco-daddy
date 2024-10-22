@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Gallery } from "@/app/components/gallery/gallery";
 import { useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
+import { Contact } from "@/app/components/contact/contact";
 
 /** The title */
 const title = "Disco Daddy";
@@ -32,9 +33,10 @@ export default function Home() {
                         </span>
                     ))}
                 </h1>
+                <h2>Der DJ für echte Musik</h2>
                 <ScrollDown />
             </section>
-            <section className={styles.about}>
+            <section id={"about"} className={styles.about}>
                 <h2>Daddy?</h2>
                 <h2>Who the fuck is Daddy?</h2>
                 <div className={styles.grid}>
@@ -42,7 +44,7 @@ export default function Home() {
                         <img alt={"Father And Son"} src={"/img/dd.png"} />
                     </div>
                     <div className={clsx("glass", styles.description)}>
-                        <h3>"Darfsch mi au Georg nenna"</h3>
+                        <h3>„Darfsch mi au Georg nenna“</h3>
                         Georg ist die Disco-Größe schlechthin. Das ganze Schwabenland hat bereits zu seinen Grooves
                         getanzt!
                     </div>
@@ -50,7 +52,7 @@ export default function Home() {
                     <div className={clsx("glass", styles.fourth)}>"Darfsch mi au Georg nenna"</div>
                 </div>
             </section>
-            <section className={styles.spotify}>
+            <section id={"spotify"} className={styles.spotify}>
                 <h2>DiscoDaddy für zu Hause</h2>
                 <div className={clsx("glass", styles.panel)}>
                     <iframe
@@ -59,13 +61,13 @@ export default function Home() {
                     ></iframe>
                 </div>
             </section>
-            <section className={styles.target}>
+            <section id={"gallery"} className={styles.gallery}>
                 <h2>DiscoDaddy Gallerie</h2>
                 <Gallery />
             </section>
-            <section className={styles.contact}>
-                <h2>Sagen Sie DiscoDaddy Hallo</h2>
-                <div className={"glass"}>Contact Form</div>
+            <section id={"contact"} className={styles.contact}>
+                <h2>Sagen Sie DiscoDaddy „Hallo“</h2>
+                <Contact />
             </section>
         </main>
     );

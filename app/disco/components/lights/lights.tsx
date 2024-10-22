@@ -1,7 +1,14 @@
 import * as THREE from "three";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { AnimationScript, executeAnimation, primaryBlue, primaryRed } from "@/app/util";
+import {
+    AnimationScript,
+    executeAnimation,
+    getSectionPosition,
+    primaryBlue,
+    primaryRed,
+    useDebouncedResize,
+} from "@/app/util";
 import { TinyColor } from "@ctrl/tinycolor";
 
 /**
@@ -11,14 +18,25 @@ export const Lights: React.FC = () => {
     const parentRef = useRef<THREE.Mesh>(null);
     const [firstColor, setFirstColor] = useState(new THREE.Color(primaryRed));
     const [secondColor, setSecondColor] = useState(new THREE.Color(primaryBlue));
+    const resizeCount = useDebouncedResize();
 
     /** The scroll animations for the light */
-    const height = window.innerHeight;
-    const animations: AnimationScript[] = useMemo(
-        () => [
+    const aboutPos = getSectionPosition("about");
+    const spotifyPos = getSectionPosition("spotify");
+    const galleryPos = getSectionPosition("gallery");
+    const contactPos = getSectionPosition("contact");
+    const animations: AnimationScript[] = useMemo(() => {
+        const endAnimation: AnimationScript = {
+            end: Number.MAX_VALUE,
+            handler: () => {
+                setFirstColor(new THREE.Color(primaryRed));
+                setSecondColor(new THREE.Color(primaryBlue));
+            },
+        };
+        if (!aboutPos || !spotifyPos || !galleryPos || !contactPos) return [endAnimation];
+        return [
             {
-                start: 0,
-                end: height,
+                end: aboutPos,
                 handler: (progression) => {
                     const initial = new TinyColor(primaryBlue);
                     const target = new TinyColor(primaryRed);
@@ -28,8 +46,7 @@ export const Lights: React.FC = () => {
                 },
             },
             {
-                start: height,
-                end: 2 * height,
+                end: spotifyPos,
                 handler: (progression) => {
                     const initial = new TinyColor(primaryRed);
                     const target = new TinyColor(primaryBlue);
@@ -39,8 +56,7 @@ export const Lights: React.FC = () => {
                 },
             },
             {
-                start: 2 * height,
-                end: 3 * height,
+                end: galleryPos,
                 handler: (progression) => {
                     const initial = new TinyColor(primaryRed);
                     const target = new TinyColor(primaryBlue);
@@ -49,9 +65,19 @@ export const Lights: React.FC = () => {
                     setSecondColor(new THREE.Color(primaryBlue));
                 },
             },
-        ],
-        [height],
-    );
+            {
+                end: contactPos,
+                handler: (progression) => {
+                    const initial = new TinyColor(primaryBlue);
+                    const target = new TinyColor(primaryRed);
+                    const color = initial.mix(target, progression * 100).toHexString();
+                    setFirstColor(new THREE.Color(color));
+                    setSecondColor(new THREE.Color(primaryBlue));
+                },
+            },
+            endAnimation,
+        ];
+    }, [aboutPos, spotifyPos, galleryPos, contactPos, resizeCount]);
 
     /** Execute the animations */
     useEffect(() => {

@@ -31,6 +31,42 @@ a {
     line-height: var(--line-height);
 }
 
+input,
+textarea,
+button {
+    border-radius: var(--border-radius);
+    font-size: var(--text1);
+    font-weight: 700;
+    color: var(--white);
+    outline: none;
+    border: none;
+
+    &:focus-visible {
+        outline: 3px solid var(--primary-red);
+    }
+}
+
+button {
+    padding: var(--spacing12) var(--spacing24);
+    background: var(--primary-red);
+    outline-offset: 3px;
+
+    &:disabled {
+        background: var(--grey);
+        pointer-events: none;
+    }
+}
+
+input,
+textarea {
+    padding: var(--spacing16) var(--spacing24);
+    background: #00000030;
+}
+
+::placeholder {
+    color: var(--grey);
+}
+
 /**
  * The glass cards
  */
@@ -40,7 +76,7 @@ a {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: var(--spacing32);
-    border: 2px solid var(--primary-red);
+    border: 3px solid var(--primary-red);
     color: var(--white);
     overflow: hidden;
     font-size: 1.3rem;
@@ -51,8 +87,14 @@ a {
         font-family: var(--font-galada), sans-serif;
     }
 
+    h4,
+    h5,
+    button {
+        font-family: var(--font-galada), sans-serif;
+    }
+
     &.blue {
-        border: 2px solid var(--primary-blue);
+        border: 3px solid var(--primary-blue);
     }
 }
 
@@ -142,7 +184,7 @@ a {
 
 footer {
     display: flex;
-    align-self: center;
+    align-items: center;
     justify-content: center;
     margin-top: var(--spacing32);
     margin-bottom: var(--spacing64);
@@ -151,5 +193,11 @@ footer {
 
     a {
         font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    footer {
+        flex-direction: column;
     }
 }
