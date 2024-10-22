@@ -95,7 +95,7 @@ export const Gallery = () => {
                 <div className={styles.container}>
                     {slides.map((value, index) => (
                         <div className={styles.slide} key={index}>
-                            <div className={clsx(styles.card, "blueGlass")}>
+                            <div className={clsx(styles.card, "glass", "blue")}>
                                 <img alt={value} src={`/img/${value}.png`} />
                             </div>
                         </div>

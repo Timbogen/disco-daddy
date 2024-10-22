@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./styles/globals.scss";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -23,6 +25,11 @@ export const metadata: Metadata = {
     description: "Enjoy your musical journey with the legendary disco daddy!",
 };
 
+/** Completely prevent SSR for the three js stuff */
+const Disco = dynamic(() => import("@/app/disco/disco"), {
+    ssr: false,
+});
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -30,7 +37,17 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} ${galada.variable}`}>{children}</body>
+            <body className={`${geistSans.variable} ${geistMono.variable} ${galada.variable}`}>
+                <Disco />
+                {children}
+                <footer>
+                    © DiscoDaddy {new Date().getFullYear()}
+                    <span>•</span>
+                    <Link href={"/legal/imprint"}>Impressum</Link>
+                    <span>•</span>
+                    <Link href={"/legal/privacy"}>Datenschutzerklärung</Link>
+                </footer>
+            </body>
         </html>
     );
 }
