@@ -3,17 +3,23 @@ import React, { useEffect, useState } from "react";
 import { useDebouncedResize } from "@/app/util";
 
 /**
+ * Calculates the scale for the disco balls based on the window size
+ */
+const getScale = () => {
+    if (window.innerWidth < 500) return 0.5;
+    if (window.innerWidth < 700) return 0.7;
+    return 1;
+};
+
+/**
  * The disco balls
  */
 export const Balls: React.FC = () => {
-    const [scale, setScale] = useState(1);
+    const [scale, setScale] = useState(getScale());
     const resizeCount = useDebouncedResize();
 
-    useEffect(() => {
-        if (window.innerWidth < 500) setScale(0.5);
-        else if (window.innerWidth < 700) setScale(0.7);
-        else setScale(1);
-    }, [resizeCount]);
+    /** Update scale on resize */
+    useEffect(() => setScale(getScale()), [resizeCount]);
 
     return (
         <mesh scale={scale}>
