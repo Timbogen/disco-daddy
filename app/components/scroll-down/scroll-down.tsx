@@ -10,5 +10,14 @@ import { useProgress } from "@react-three/drei";
 export const ScrollDown: React.FC = () => {
     const { progress } = useProgress();
     if (progress < 100) return <></>;
-    return <div className={styles.scrollDown}></div>;
+    return (
+        <div className={styles.tokenWrapper}>
+            <div className={styles.token}>
+                <img alt={"DiscoDaddy"} src={"/img/daddy.png"} />
+                <div className={styles.scrollHint}>
+                    <div className={styles.scrollDown}></div>
+                </div>
+            </div>
+        </div>
+    );
 };
