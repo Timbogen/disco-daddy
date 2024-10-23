@@ -9,20 +9,19 @@ import fs from "fs";
 
         // Add CNAME file
         const folderName = "out";
-        fs.writeFile(`${folderName}/CNAME`, "discodaddy.de", async (err) => {
-            if (err) throw err;
+        fs.writeFileSync(`${folderName}/.nojekyll`, "");
+        fs.writeFileSync(`${folderName}/CNAME`, "discodaddy.de");
 
-            execSync(`git --work-tree ${folderName} add --all`, { stdio: "inherit" });
-            execSync(`git --work-tree ${folderName} commit -m gh-pages`, { stdio: "inherit" });
+        execSync(`git --work-tree ${folderName} add --all`, { stdio: "inherit" });
+        execSync(`git --work-tree ${folderName} commit -m gh-pages`, { stdio: "inherit" });
 
-            console.log("Pushing to gh-pages...");
-            execSync(`git push origin HEAD:gh-pages --force`, { stdio: "inherit" });
-            execSync(`rm -r ${folderName}`, { stdio: "inherit" });
-            execSync(`git checkout -f main`, { stdio: "inherit" });
-            execSync(`git branch -D gh-pages`, { stdio: "inherit" });
+        console.log("Pushing to gh-pages...");
+        execSync(`git push origin HEAD:gh-pages --force`, { stdio: "inherit" });
+        execSync(`rm -r ${folderName}`, { stdio: "inherit" });
+        execSync(`git checkout -f main`, { stdio: "inherit" });
+        execSync(`git branch -D gh-pages`, { stdio: "inherit" });
 
-            console.log("Successfully deployed");
-        });
+        console.log("Successfully deployed");
     } catch (e) {
         console.error(e);
         process.exit(1);
