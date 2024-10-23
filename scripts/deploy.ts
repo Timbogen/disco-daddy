@@ -1,26 +1,27 @@
-/**
- * Deploy to Github Pages like a pro with Github Actions
- * https://dev.to/rolanddoda/deploy-to-github-pages-like-a-pro-with-github-actions-4hdg
- */
-import { execa } from "execa";
+import { execSync } from "child_process";
 import fs from "fs";
 
 (async () => {
     try {
-        await execa("git", ["checkout", "--orphan", "gh-pages"]);
+        execSync("git checkout --orphan gh-pages", { stdio: "inherit" });
         console.log("Building...");
-        await execa("npm", ["run", "build"]);
+        execSync("npm run build", { stdio: "inherit" });
+
         const folderName = fs.existsSync("dist") ? "dist" : "build";
 
         // Add CNAME file
-        fs.writeFile(`${folderName}/CNAME`, "discodaddy.de", async () => {
-            await execa("git", ["--work-tree", folderName, "add", "--all"]);
-            await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
+        fs.writeFile(`${folderName}/CNAME`, "discodaddy.de", async (err) => {
+            if (err) throw err;
+
+            execSync(`git --work-tree ${folderName} add --all`, { stdio: "inherit" });
+            execSync(`git --work-tree ${folderName} commit -m gh-pages`, { stdio: "inherit" });
+
             console.log("Pushing to gh-pages...");
-            await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"]);
-            await execa("rm", ["-r", folderName]);
-            await execa("git", ["checkout", "-f", "main"]);
-            await execa("git", ["branch", "-D", "gh-pages"]);
+            execSync(`git push origin HEAD:gh-pages --force`, { stdio: "inherit" });
+            execSync(`rm -r ${folderName}`, { stdio: "inherit" });
+            execSync(`git checkout -f main`, { stdio: "inherit" });
+            execSync(`git branch -D gh-pages`, { stdio: "inherit" });
+
             console.log("Successfully deployed");
         });
     } catch (e) {
