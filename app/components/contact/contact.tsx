@@ -22,9 +22,9 @@ export const Contact: React.FC = () => {
 
     return (
         <div className={clsx("glass", styles.contactForm)}>
-            <h5>Betreff</h5>
+            <h4>Betreff</h4>
             <input placeholder={"Hallo DiscoDaddy"} onChange={(e) => setSubject(e.target.value)} />
-            <h5>Nachricht</h5>
+            <h4>Nachricht</h4>
             <textarea
                 placeholder={"Ich wollte dir schon immer sagen..."}
                 onChange={(e) => setMessage(e.target.value)}

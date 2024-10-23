@@ -106,7 +106,7 @@ export default function Home() {
                 <Gallery />
             </section>
             <section id={"contact"} className={styles.contact}>
-                <h2>Sagen Sie DiscoDaddy „Hallo“</h2>
+                <h2>Sag DiscoDaddy „Hallo“</h2>
                 <Contact />
             </section>
         </main>
