@@ -7,9 +7,8 @@ import fs from "fs";
         console.log("Building...");
         execSync("npm run build", { stdio: "inherit" });
 
-        const folderName = fs.existsSync("dist") ? "dist" : "build";
-
         // Add CNAME file
+        const folderName = "out";
         fs.writeFile(`${folderName}/CNAME`, "discodaddy.de", async (err) => {
             if (err) throw err;
 
