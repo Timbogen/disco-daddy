@@ -41,7 +41,7 @@
     /* Text sizes */
     --heading1: 6rem;
     --heading2: 3rem;
-    --heading3: 1.5rem;
+    --heading3: 1.8rem;
     --heading4: 1.3rem;
     --text1: 1rem;
     --card-description: 0.875rem;
@@ -54,22 +54,24 @@
 
 @media screen and (max-width: 1000px), screen and (max-height: 950px) {
     html {
-        font-size: 90%;
+        font-size: 95%;
     }
 
     :root {
         --heading1: 5rem;
         --heading2: 2.5rem;
+        --heading3: 1.7rem;
     }
 }
 
 @media screen and (max-width: 600px) {
     html {
-        font-size: 80%;
+        font-size: 90%;
     }
 
     :root {
         --heading1: 3rem;
         --heading2: 2rem;
+        --heading3: 1.5rem;
     }
 }

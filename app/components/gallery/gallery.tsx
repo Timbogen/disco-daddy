@@ -87,7 +87,7 @@ export const Gallery = () => {
             .on("reInit", tweenScale)
             .on("scroll", tweenScale)
             .on("slideFocus", tweenScale);
-    }, [emblaApi, tweenScale]);
+    }, [emblaApi, tweenScale, setTweenNodes, setTweenFactor]);
 
     return (
         <div className={styles.gallery} style={{ opacity: showCarousel ? 1 : 0 }}>

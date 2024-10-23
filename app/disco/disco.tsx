@@ -11,7 +11,7 @@ import { Balls } from "@/app/disco/components/balls/balls";
 /**
  * The disco background
  */
-export default () => {
+export default function Disco() {
     const { progress } = useProgress();
     const [opacity, setOpacity] = useState(0);
 
@@ -31,4 +31,4 @@ export default () => {
             </Canvas>
         </div>
     );
-};
+}

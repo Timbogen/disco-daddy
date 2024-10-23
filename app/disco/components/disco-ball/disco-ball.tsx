@@ -46,7 +46,7 @@ export const DiscoBall: React.FC<MeshProps> = (meshProps) => {
      */
     const discoBall = useMemo(() => {
         const dummy = new THREE.Object3D();
-        let geometryOriginal = new THREE.IcosahedronGeometry(1, 10);
+        const geometryOriginal = new THREE.IcosahedronGeometry(1, 10);
         geometryOriginal.deleteAttribute("normal");
         geometryOriginal.deleteAttribute("uv");
         const mergedGeometries = BufferGeometryUtils.mergeVertices(geometryOriginal);
@@ -54,7 +54,7 @@ export const DiscoBall: React.FC<MeshProps> = (meshProps) => {
 
         const mirrorSize = 0.09;
         const mirrorGeometry = new THREE.PlaneGeometry(mirrorSize, mirrorSize);
-        let instancedMirrorMesh = new THREE.InstancedMesh(
+        const instancedMirrorMesh = new THREE.InstancedMesh(
             mirrorGeometry,
             shinyMaterial,
             mergedGeometries.attributes.position.count,
