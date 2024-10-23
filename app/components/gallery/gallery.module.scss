@@ -24,3 +24,21 @@
         }
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .gallery {
+        width: 130%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .gallery {
+        width: 160%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .gallery {
+        width: 190%;
+    }
+}
