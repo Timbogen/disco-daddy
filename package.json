@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "build": "next build",
+        "deploy": "tsx scripts/deploy.ts",
         "dev": "next dev",
         "lint": "next lint",
         "sortpackagejson": "npx sort-package-json",
@@ -29,8 +30,10 @@
         "@weichwarenprojekt/configuration": "^0.2.0",
         "eslint": "^8",
         "eslint-config-next": "14.2.15",
+        "execa": "^9.4.1",
         "prettier": "^3.3.3",
         "sass": "^1.80.3",
+        "tsx": "^4.19.1",
         "typescript": "^5"
     }
 }
