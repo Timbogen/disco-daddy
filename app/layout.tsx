@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./styles/globals.scss";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import "./styles/globals.scss";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -22,7 +22,7 @@ const galada = localFont({
 
 export const metadata: Metadata = {
     title: "Disco Daddy",
-    description: "Enjoy your musical journey with the legendary disco daddy!",
+    description: "Genießen Sie ihre musikalische Wunderreise mit DiscoDaddy!",
 };
 
 /** Completely prevent SSR for the three js stuff */

@@ -1,20 +1,16 @@
 :root {
-    /* The Vollkit colors */
-    --black: #000000;
-    --black-hover: #303030;
-    --dark-grey: #7f7f7f;
-    --dark-grey-hover: #969696;
-    --grey: #bcbcbc;
-    --light-grey: #f7f7f7;
-    --white: #ffffff;
-    --primary-red: #f2a7b9;
-    --primary-red-background: #feeee9;
-    --yellow: #f1d023;
-    --yellow-background: #fefbe9;
+    /** Colors */
     --primary-blue: #56a1e2;
-    --primary-blue-background: #e9f4f8;
-    --shadow: #121d1617;
+    --primary-red: #f2a7b9;
 
+    /** Black and White */
+    --black: #000000;
+    --dark-grey: #111111;
+    --grey: #7f7f7f;
+    --grey-hover: #969696;
+    --border-color: #b4b4b4;
+    --light-grey: #f3f3f3;
+    --white: #ffffff;
     /** The opacity for disabled elements */
     --disabled-opacity: 0.5;
 
@@ -48,15 +44,14 @@
     --heading3: 1.5rem;
     --heading4: 1.15rem;
     --heading5: 0.9rem;
-    --text1: 0.9rem;
-    --text2: 0.8rem;
+    --text1: 1rem;
     --card-description: 0.875rem;
 
     /** Other sizes */
     --max-content-width: 1300px;
     --header-height: 5rem;
     --font-family: Poppins, sans-serif;
-    --line-height: 1.3;
+    --line-height: 1.4;
 }
 
 @media screen and (max-width: 1000px), screen and (max-height: 950px) {

@@ -19,7 +19,7 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: var(--font-geist-sans), sans-serif;
+    font-family: Poppins, sans-serif;
 }
 
 span,
@@ -159,6 +159,10 @@ textarea {
         h3 {
             margin-top: var(--spacing24);
             margin-bottom: var(--spacing16);
+
+            &:first-child {
+                margin-top: 0;
+            }
         }
         h4 {
             margin-top: var(--spacing16);

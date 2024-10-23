@@ -12,16 +12,16 @@ export default function Imprint() {
                     {"<"} Home
                 </Link>
                 <div className={"glass"}>
-                    <h2 style={{ marginBottom: 0 }}>Tim Niederer</h2>
+                    <h3>Tim Niederer</h3>
                     <p>
-                        <br />
                         Karlstra&szlig;e 101
                         <br />
                         89073 Ulm
                         <br />
                         Deutschland
                     </p>
-                    <h2>Kontakt</h2>
+                    <br />
+                    <h3>Kontakt</h3>
                     <p>
                         Telefon: 01712089964
                         <br />
