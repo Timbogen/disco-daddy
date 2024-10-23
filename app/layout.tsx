@@ -14,9 +14,20 @@ const poppins = Poppins({
 /** The galada font */
 const galada = Galada({ weight: ["400"], subsets: ["latin"], variable: "--font-galada" });
 
+/**
+ * The webpage metadata
+ */
 export const metadata: Metadata = {
     title: "Disco Daddy",
     description: "Genießen Sie ihre musikalische Wunderreise mit DiscoDaddy!",
+    openGraph: {
+        title: "Disco Daddy",
+        description: "Genießen Sie ihre musikalische Wunderreise mit DiscoDaddy!",
+        type: "website",
+        images: ["https://discodaddy.de/img/logo.png"],
+        countryName: "Deutschland",
+        url: "https://discodaddy.de",
+    },
 };
 
 /** Completely prevent SSR for the three js stuff */
