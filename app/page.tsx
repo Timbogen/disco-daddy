@@ -1,15 +1,20 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { ScrollDown } from "@/app/components/scroll-down/scroll-down";
 import clsx from "clsx";
 import { Gallery } from "@/app/components/gallery/gallery";
 import { useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
 import { Contact } from "@/app/components/contact/contact";
+import dynamic from "next/dynamic";
 
 /** The title */
 const title = "Disco Daddy";
+
+/** Completely prevent SSR for the scroll down indicator */
+const ScrollDown = dynamic(() => import("@/app/components/scroll-down/scroll-down"), {
+    ssr: false,
+});
 
 /**
  * The home page
@@ -28,7 +33,7 @@ export default function Home() {
             <section className={styles.intro}>
                 <h1>
                     {title.split("").map((c, index) => (
-                        <span key={index} style={{ animationDelay: `${index * 0.1}s` }}>
+                        <span key={index} style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
                             {c}
                         </span>
                     ))}
@@ -40,9 +45,6 @@ export default function Home() {
                 <h2>Daddy?</h2>
                 <h2>Who the fuck is Daddy?</h2>
                 <div className={styles.grid}>
-                    <div className={clsx("glass", styles.image)}>
-                        <img alt={"Father And Son"} src={"/img/dd.png"} />
-                    </div>
                     <div className={clsx("glass", styles.description)}>
                         <h3>„Darfsch mi au Georg nenna“</h3>
                         <div className={styles.info}>
@@ -55,7 +57,7 @@ export default function Home() {
                             >
                                 <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
                             </svg>
-                            Georg Schmid, 60 Jahre alt
+                            Georg Schmid, 60, stolzer Vater (👧🏽👦🏼)
                         </div>
                         <div className={styles.info}>
                             <svg
@@ -68,11 +70,18 @@ export default function Home() {
                                 <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z" />
                             </svg>
                             <div>
-                                Georg ist die Disco-Größe schlechthin. Das ganze Schwabenland hat bereits zu seinen
-                                Grooves getanzt! Außerdem hat er sich bereits um seinen würdigen Nachfolger gekümmert:{" "}
+                                Schon in den 80er Jahren verfiel Georg den Klängen von Soul- und Disco-Musik. Geprägt
+                                von den damals noch als Besatzer stationierten Amerikanern, wurden zahlreiche Kassetten
+                                mit Hits sowie Underground-Musik jener Zeit aufgenommen. Die Amerikaner sollten später
+                                ebenso enge Freunde werden wie die geliebte Disco-Musik. Während ihm damals von
+                                Gleichaltrigen noch abfällig gesagt wurde, er solle sich mit seiner seltsamen Musik
+                                verziehen, ist heute klar, dass Georg den Klassikern der heutigen Zeit auf der Spur war!
+                                An die Plattenteller wagte er sich allerdings erst, als er gemeinsam mit seinem Sohn (
                                 <a href={"http://mattleymusic.de"} target={"_blank"}>
-                                    MattleyMusic!
+                                    MattleyMusic
                                 </a>
+                                ) für die Eisdisco im Donaubad an den Start ging. Heute ist DiscoDaddy vor allem dann
+                                gefragt, wenn es um drei Dinge geht: gute Musik, echte Musik, Disco-Musik!
                             </div>
                         </div>
                     </div>
@@ -89,6 +98,11 @@ export default function Home() {
                         </svg>
                         <h3>Ulm & Umgebung</h3>
                         <p>Tatort</p>
+                    </div>
+                    <div className={clsx("glass", styles.image)}>
+                        <div>
+                            <img alt={"Father And Son"} src={"/img/dd.png"} />
+                        </div>
                     </div>
                 </div>
             </section>
