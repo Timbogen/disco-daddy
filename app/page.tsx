@@ -110,8 +110,9 @@ export default function Home() {
                 <h2>DiscoDaddy für zu Hause</h2>
                 <div className={clsx("glass", styles.panel)}>
                     <iframe
+                        src="https://open.spotify.com/embed/playlist/6LgG8julGyEevVhDYiuW12?utm_source=generator&theme=0"
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        src="https://open.spotify.com/embed/playlist/5zD1Omh2VmrNGsKeB8gfob?utm_source=generator&amp;theme=0"
+                        loading="lazy"
                     ></iframe>
                 </div>
             </section>
