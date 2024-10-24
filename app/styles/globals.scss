@@ -108,6 +108,14 @@ textarea {
 @media screen and (max-width: 520px) {
     .glass {
         padding: var(--spacing16);
+
+        h1:first-child,
+        h2:first-child,
+        h3:first-child,
+        h4:first-child,
+        h5:first-child {
+            padding-top: var(--spacing8);
+        }
     }
 }
 
@@ -233,7 +241,6 @@ textarea {
 @media screen and (max-width: 520px) {
     .page {
         section {
-
             padding: var(--spacing16);
         }
     }
